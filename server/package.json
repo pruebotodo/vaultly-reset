@@ -1,0 +1,20 @@
+{
+  "name": "vaultly-server",
+  "version": "0.2.0",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "openai": "^4.53.2",
+    "youtube-dl-exec": "^3.0.0",
+    "uuid": "^9.0.1",
+    "ffmpeg-static": "^5.2.0"
+  }
+}
