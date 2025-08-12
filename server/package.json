@@ -1,20 +1,24 @@
-{
-  "name": "vaultly-server",
-  "version": "0.2.0",
-  "type": "module",
-  "main": "src/index.js",
-  "scripts": {
-    "dev": "node --watch src/index.js",
-    "start": "node src/index.js"
-  },
-  "dependencies": {
-    "better-sqlite3": "^9.4.0",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "openai": "^4.53.2",
-    "youtube-dl-exec": "^3.0.0",
-    "uuid": "^9.0.1",
-    "ffmpeg-static": "^5.2.0"
-  }
-}
+import express from 'express';
+import cors from 'cors';
+
+const app = express();
+
+// Middlewares
+app.use(cors());
+app.use(express.json());
+
+// Ruta de salud para verificar que el servidor está activo
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'ok' });
+});
+
+// Ejemplo de otra ruta (puedes borrar si no la necesitas)
+app.get('/', (req, res) => {
+  res.send('Servidor Vaultly API activo');
+});
+
+// Puerto dinámico para Render o 3000 en local
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor escuchando en puerto ${PORT}`);
+});
